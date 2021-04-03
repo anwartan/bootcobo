@@ -1,0 +1,47 @@
+@startuml
+
+entity posting {
+    *id : unique
+    --
+    image_url: String,
+    description: Text
+    created_at: Date,
+    updated_at: Date,
+
+}
+
+entity user{
+    *id : unique,
+    --
+    name:String,
+    username:String,
+    email:String,
+    password:String,
+    bio:Text,
+    created_at:Date,
+    updated_at:Date
+
+}
+
+
+entity community{
+    *id : unique,
+    --
+    community_name:String,
+    community_category:id,
+    created_at: Date,
+    updated_at: Date,
+
+}
+
+entity community_category{
+    *id : unique,
+    --
+    category_name:String,
+    created_at:Date,
+    updated_at:Date
+}
+
+user|o--o{posting
+community|o--||community_category
+@enduml

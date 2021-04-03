@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_DATABASE: bootcabo
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+  springboot-mongodb:
+    image: springboot-mongodb:1.0
+    container_name: springboot-mongodb
+    ports:
+      - 8080:8080
+    links:
+      - mongo
